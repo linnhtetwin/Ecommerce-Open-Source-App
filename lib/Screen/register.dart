@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tmd/Sources/addressfield.dart';
-import 'package:tmd/Sources/textfield.dart';
-import 'package:tmd/Sources/passwordfield.dart';
-import 'package:tmd/Screen/login.dart';
-
+import 'package:EOA/Sources/addressfield.dart';
+import 'package:EOA/Sources/textfield.dart';
+import 'package:EOA/Sources/passwordfield.dart';
+import 'package:EOA/Screen/login.dart';
 
 class Towncode {
   const Towncode(this.postcode, this.townname);
@@ -90,7 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               Divider(
                 thickness: 1.2,
-                color: Color.fromARGB(255, 250, 35, 35),
+                color: Color.fromARGB(255, 35, 200, 35),
               ),
               PasswordField(
                 color: Colors.red,
@@ -107,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FlatButton(
-                    color: Color.fromARGB(255, 250, 35, 35),
+                    color: Color.fromARGB(255, 35, 200, 35),
                     child: Text(
                       "SUBMIT",
                       style: TextStyle(color: Colors.white),
@@ -115,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: () => print("Register Acc"),
                   ),
                   FlatButton(
-                    color: Color.fromARGB(255, 250, 35, 35),
+                    color: Color.fromARGB(255, 35, 200, 35),
                     child: Text(
                       "BACK",
                       style: TextStyle(color: Colors.white),

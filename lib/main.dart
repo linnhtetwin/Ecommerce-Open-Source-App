@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wechannelmm',
+      title: 'E Commerce Open Source App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
-        primaryColor: const Color(0xFFfd0202),
+        primarySwatch: Colors.green,
+        primaryColor: const Color(0xFF009900),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: appRoutes,

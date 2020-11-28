@@ -3,7 +3,7 @@ library passwordfield;
 //https://pub.dev/packages/passwordfield
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:tmd/Sources/password_bloc.dart';
+import 'package:EOA/Sources/password_bloc.dart';
 
 class PasswordField extends StatefulWidget {
   const PasswordField({

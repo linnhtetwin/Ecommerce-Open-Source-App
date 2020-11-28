@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tmd/Sources/passwordfield.dart';
-import 'package:tmd/Sources/textfield.dart';
-import 'package:tmd/Screen/register.dart';
+import 'package:EOA/Sources/passwordfield.dart';
+import 'package:EOA/Sources/textfield.dart';
+import 'package:EOA/Screen/register.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/';
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 customtextfield("User Name"),
                 PasswordField(
-                  color: Colors.red,
+                  color: Colors.green,
                   hasFloatingPlaceholder: true,
                   labeltext: "Password",
                 ),
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     "LOGIN",
                     style: TextStyle(color: Colors.white),
                   ),
-                  color: Color.fromARGB(255, 250, 35, 35),
+                  color: Color.fromARGB(255, 35, 200, 35),
                   onPressed: () => null,
                 ),
                 FlatButton(
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     "REGISTER",
                     style: TextStyle(color: Colors.white),
                   ),
-                  color: Color.fromARGB(255, 250, 35, 35),
+                  color: Color.fromARGB(255, 35, 200, 35),
                   onPressed: () =>
                       Navigator.pushNamed(context, RegisterScreen.routeName),
                 )
