@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:EOA/Sources/passwordfield.dart';
-import 'package:EOA/Sources/textfield.dart';
+import 'package:EOA/widgets/textfield.dart';
 import 'package:EOA/Screen/register.dart';
 
 class LoginScreen extends StatefulWidget {

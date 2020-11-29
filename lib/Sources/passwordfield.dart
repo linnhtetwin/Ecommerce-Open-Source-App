@@ -149,7 +149,7 @@ class PasswordFieldState extends State<PasswordField> {
     return Theme(
       data: ThemeData(
           primaryColor:
-              widget.color ?? Theme.of(context).primaryColor ?? Colors.red),
+              widget.color ?? Theme.of(context).primaryColor ?? Colors.green),
       child: StreamBuilder<String>(
         stream: bloc.password,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -177,7 +177,7 @@ class PasswordFieldState extends State<PasswordField> {
                 errorStyle: widget.errorStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 250, 35, 35),
+                    color: Color.fromARGB(255, 35, 250, 35),
                   ),
                 ),
                 focusedBorder: widget.focusedBorder,

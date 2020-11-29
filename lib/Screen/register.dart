@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:EOA/Sources/addressfield.dart';
-import 'package:EOA/Sources/textfield.dart';
+import 'package:EOA/widgets/addressfield.dart';
+import 'package:EOA/widgets/textfield.dart';
 import 'package:EOA/Sources/passwordfield.dart';
 import 'package:EOA/Screen/login.dart';
 
@@ -18,21 +18,6 @@ class RegisterScreen extends StatefulWidget {
 
 //https://stackoverflow.com/questions/49720450/flutter-dropdownbutton-using-keyvaluepair
 class _RegisterScreenState extends State<RegisterScreen> {
-  Towncode selectedTown;
-  List<Towncode> townships = <Towncode>[
-    const Towncode(11121, 'Ahlone'),
-    const Towncode(11012, 'Insein'),
-    const Towncode(11201, 'Bahan'),
-    const Towncode(11062, 'Mayangone'),
-    const Towncode(11143, 'Pabedan'),
-    const Towncode(11162, 'Botahtaung'),
-    const Towncode(11051, 'Hlaing'),
-    const Towncode(11111, 'Sanchaung'),
-  ];
-  void initState() {
-    selectedTown = townships[0]; //Default Ahlone
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,49 +35,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               customtextfield("Email"),
               customtextfield("Phone"),
               AddressField(),
-              customtextfield("Shop Name"),
-              Container(
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      "Postal Code -   ",
-                      style: TextStyle(fontSize: 16, color: Colors.black54),
-                    ),
-                    DropdownButtonHideUnderline(
-                      //wrap to remove underline
-                      child: DropdownButton<Towncode>(
-                        value: selectedTown,
-                        onChanged: (Towncode newValue) {
-                          setState(() {
-                            selectedTown = newValue;
-                          });
-                        },
-                        items: townships.map((Towncode selectedtown) {
-                          return new DropdownMenuItem<Towncode>(
-                            value: selectedtown,
-                            child: new Text(
-                              selectedtown.townname,
-                              style: new TextStyle(color: Colors.black),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                    Text(
-                      " ${selectedTown.postcode}",
-                      style: TextStyle(color: Colors.black54),
-                    )
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.2,
-                color: Color.fromARGB(255, 35, 200, 35),
-              ),
               PasswordField(
-                color: Colors.red,
+                color: Colors.green,
                 hasFloatingPlaceholder: true,
                 labeltext: "Password",
               ),
@@ -123,6 +67,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Navigator.pushNamed(context, LoginScreen.routeName),
                   ),
                 ],
+              ),
+              new FlatButton(
+                color: Color.fromARGB(255, 35, 200, 35),
+                child: Text(
+                  "Register With Facebook",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () => print("Register Acc"),
+              ),
+              new FlatButton(
+                color: Color.fromARGB(255, 35, 200, 35),
+                child: Text(
+                  "Register With Google",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () =>
+                    Navigator.pushNamed(context, LoginScreen.routeName),
               ),
             ],
           ),

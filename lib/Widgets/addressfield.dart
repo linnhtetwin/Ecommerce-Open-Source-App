@@ -190,7 +190,7 @@ class AddressFieldState extends State<AddressField> {
                 errorStyle: widget.errorStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 250, 35, 35),
+                    color: Color.fromARGB(255, 35, 250, 35),
                   ),
                 ),
                 focusedBorder: widget.focusedBorder,
