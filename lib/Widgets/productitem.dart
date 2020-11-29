@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Screen/detailscreen.dart';
 
 class Productitem extends StatelessWidget {
   final String id;
@@ -9,9 +10,15 @@ class Productitem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Image.network(
-        imageurl,
-        fit: BoxFit.cover,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(DetailScreen.routeName, arguments: name);
+        },
+        child: Image.network(
+          imageurl,
+          fit: BoxFit.cover,
+        ),
       ),
       footer: GridTileBar(
         backgroundColor: Colors.white60,
