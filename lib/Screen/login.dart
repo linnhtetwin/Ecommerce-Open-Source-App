@@ -1,3 +1,4 @@
+import 'package:EOA/Screen/overviewscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:EOA/Sources/passwordfield.dart';
 import 'package:EOA/widgets/textfield.dart';
@@ -43,7 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(color: Colors.white),
                   ),
                   color: Color.fromARGB(255, 35, 200, 35),
-                  onPressed: () => null,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, OverviewScreen.routeName),
                 ),
                 FlatButton(
                   child: Text(
