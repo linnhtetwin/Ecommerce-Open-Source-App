@@ -1,0 +1,3 @@
+Create a class file call Product as a Data Model
+With constructor
+create overview screen just a stateless widget
