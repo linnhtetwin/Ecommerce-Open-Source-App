@@ -1,8 +1,8 @@
-import 'package:EOA/Screen/overviewscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:EOA/Sources/passwordfield.dart';
-import 'package:EOA/widgets/textfield.dart';
-import 'package:EOA/Screen/register.dart';
+import '../Screen/overviewscreen.dart';
+import '../Sources/passwordfield.dart';
+import '../widgets/textfield.dart';
+import '../Screen/register.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/';
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   color: Color.fromARGB(255, 35, 200, 35),
                   onPressed: () =>
-                      Navigator.pushNamed(context, OverviewScreen.routeName),
+                      Navigator.pushNamed(context, Overviewscreen.routeName),
                 ),
                 FlatButton(
                   child: Text(
