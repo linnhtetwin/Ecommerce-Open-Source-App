@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import '../Model/dummyproducts.dart';
 
@@ -28,8 +29,29 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.remove_circle, color: Colors.amber),
+                  onPressed: null,
+                ),
+                Container(
+                  width: 50.0,
+                  color: Colors.green[50],
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: 'Qty'),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.add_circle, color: Colors.amber),
+                  onPressed: null,
+                ),
+              ],
+            ),
             Text(
-              '\$${loadedProduct.price}',
+              '${loadedProduct.price} Kyat',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
@@ -46,7 +68,8 @@ class DetailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 softWrap: true,
               ),
-            )
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
