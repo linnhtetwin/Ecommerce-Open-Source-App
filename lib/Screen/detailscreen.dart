@@ -14,16 +14,15 @@ class DetailScreen extends StatelessWidget {
       listen: false,
     ).findById(productId);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(loadedProduct.name),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 300,
-              width: double.infinity,
-              child: Hero(
+      //  appBar: AppBar(        title: Text(loadedProduct.name),      ),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 300,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(loadedProduct.name),
+              background: Hero(
                 tag: loadedProduct.id,
                 child: FadeInImage(
                   placeholder: AssetImage("images/placeholder.png"),
@@ -32,7 +31,9 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+          ),
+          SliverList(
+              delegate: SliverChildListDelegate([
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -73,9 +74,11 @@ class DetailScreen extends StatelessWidget {
                 softWrap: true,
               ),
             ),
-            SizedBox(height: 20),
-          ],
-        ),
+            SizedBox(
+              height: 500,
+            ),
+          ]))
+        ],
       ),
     );
   }
