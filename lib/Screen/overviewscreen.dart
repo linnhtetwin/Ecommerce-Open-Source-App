@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../widgets/products_grid.dart';
-import '../widgets/badge.dart';
+import '../Widgets/products_grid.dart';
+import '../Widgets/badge.dart';
 import '../Model/cart.dart';
 import './cart_screen.dart';
+import '../Widgets/sidebar.dart';
 
 class Overviewscreen extends StatefulWidget {
   static const routeName = '/overview';
@@ -35,6 +35,7 @@ class _OverviewScreenState extends State<Overviewscreen> {
           ),
         ],
       ),
+      drawer: Sidebar(),
       body: ProductsGrid(),
     );
   }
