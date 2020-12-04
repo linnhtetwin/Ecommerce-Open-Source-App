@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Widgets/addressfield.dart';
 import '../Widgets/textfield.dart';
-import '..//Sources/passwordfield.dart';
-import '..//Screen/login.dart';
+import '../Sources/passwordfield.dart';
+import '../Screen/login.dart';
 
 class Towncode {
   const Towncode(this.postcode, this.townname);
