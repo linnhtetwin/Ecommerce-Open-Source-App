@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:EOA/Sources/nominatim/nominatimLocationPicker.dart';
+import '../Sources/nominatim/nominatimLocationPicker.dart';
 
 class AddressField extends StatefulWidget {
   const AddressField({
