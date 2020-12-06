@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Model/cart.dart' show Cart;
 import '../Widgets/cart_item.dart';
+import '../Model/checkout.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
@@ -53,8 +54,14 @@ class CartScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     child: Text('Checkout'),
-                    onPressed: () {},
-                    textColor: Theme.of(context).primaryColor,
+                    onPressed: () {
+                      Provider.of<Checkout>(context, listen: false).checkoutnow(
+                        cart.items.values.toList(),
+                        cart.totalAmount,
+                      );
+                      cart.clear();
+                      Navigator.of(context).pushReplacementNamed('/checkout');
+                    },
                   )
                 ],
               ),
