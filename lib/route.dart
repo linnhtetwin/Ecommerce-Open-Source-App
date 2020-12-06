@@ -5,9 +5,9 @@ import 'Screen/detailscreen.dart';
 import 'Screen/cart_screen.dart';
 
 var appRoutes = {
-  LoginScreen.routeName: (context) => LoginScreen(),
-  RegisterScreen.routeName: (context) => RegisterScreen(),
-  Overviewscreen.routeName: (context) => Overviewscreen(),
+  LoginScreen.routeName: (ctx) => LoginScreen(),
+  RegisterScreen.routeName: (ctx) => RegisterScreen(),
+  Overviewscreen.routeName: (ctx) => Overviewscreen(),
   DetailScreen.routeName: (ctx) => DetailScreen(),
   CartScreen.routeName: (ctx) => CartScreen(),
 };
