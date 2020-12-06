@@ -3,6 +3,7 @@ import 'Screen/register.dart';
 import 'Screen/overviewscreen.dart';
 import 'Screen/detailscreen.dart';
 import 'Screen/cart_screen.dart';
+import 'Model/checkout.dart';
 
 var appRoutes = {
   LoginScreen.routeName: (ctx) => LoginScreen(),

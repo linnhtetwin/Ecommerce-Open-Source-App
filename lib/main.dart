@@ -3,6 +3,7 @@ import 'route.dart';
 import 'package:provider/provider.dart';
 import './Model/dummyproducts.dart';
 import './Model/cart.dart';
+import './Model/checkout.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Checkout(),
         ),
       ],
       child: MaterialApp(
