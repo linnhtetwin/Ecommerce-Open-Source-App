@@ -24,11 +24,6 @@ class CartItem extends StatelessWidget {
       key: ValueKey(id),
       background: Container(
         color: Theme.of(context).errorColor,
-        child: Icon(
-          Icons.delete,
-          color: Colors.white,
-          size: 40,
-        ),
         alignment: Alignment.centerRight,
         padding: EdgeInsets.only(right: 20),
         margin: EdgeInsets.symmetric(
@@ -36,7 +31,7 @@ class CartItem extends StatelessWidget {
           vertical: 4,
         ),
       ),
-      direction: DismissDirection.endToStart,
+      direction: DismissDirection.horizontal,
       onDismissed: (direction) {
         Provider.of<Cart>(context, listen: false).removeItem(productId);
       },
@@ -50,8 +45,36 @@ class CartItem extends StatelessWidget {
           child: ListTile(
             leading: Text(name),
             title: Text('$price'),
-            subtitle: Text('x $quantity'),
-            trailing: Text('Total: ${(price * quantity)}'),
+            subtitle: Text('x $quantity    Total:${(price * quantity)} Kyat'),
+            trailing: IconButton(
+              icon: Icon(Icons.delete),
+              color: Colors.red,
+              onPressed: () => { showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: Text('ဖယ်မည်?'),
+                content: Text(
+                  'ယခုဆေးကိုဖယ်မလား ?',
+                ),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text('မဖယ်ပါ'),
+                    onPressed: () {
+                      Navigator.of(ctx).pop(false);
+                    },
+                  ),
+                  FlatButton(
+                    child: Text('ဖယ်မည်'),
+                    onPressed: () {
+                      Navigator.of(ctx).pop(true);
+                      Provider.of<Cart>(context, listen: false).removeItem(productId);
+                    },
+                  ),
+                ],
+              ),
+            ) },
+            ),
+
           ),
         ),
       ),
