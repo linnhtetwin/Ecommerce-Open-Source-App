@@ -1,9 +1,6 @@
-library passwordfield;
-
-//https://pub.dev/packages/passwordfield
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:EOA/Sources/password_bloc.dart';
+import '../Sources/password_bloc.dart';
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
@@ -30,108 +27,41 @@ class PasswordField extends StatefulWidget {
     this.pattern,
     this.labeltext,
     this.suffixIconEnabled = true,
-    // ignore: deprecated_member_use_from_same_package
     @deprecated this.onChanged,
   }) : assert((backgroundColor == null && backgroundBorderRadius == null) ||
             (backgroundColor != null && backgroundBorderRadius != null));
-  // assert((hasFloatingPlaceholder == true && hintText == null) ||
-  //     (hasFloatingPlaceholder == false && hintText != null));
-
-  /// if autofocus is true keyboard pops up as soon as the widget is rendered on screen
-  /// defaults to false
   final bool autoFocus;
-
-  /// Input Border for the password field when not in focus
   final InputBorder border;
-
-  /// changes the primary color of the PasswordField
   final Color color;
-
-  /// Background Color for the textfield must be specified with [backgroundBorderRadius]
   final Color backgroundColor;
-
-  /// Border for the textfield background must be specified with backgroundColor
   final BorderRadiusGeometry backgroundBorderRadius;
-
-  /// Input Border for the password Field when in Focus
   final InputBorder focusedBorder;
-
-  /// Input Border for the password Field when in Focus and has an error
   final InputBorder errorFocusedBorder;
-
-  /// paddint for the textfield when [backgroundBorderRadius] != null
   final EdgeInsetsGeometry textPadding;
-
-  /// A controller for an editable passwordfield.
   final TextEditingController controller;
-
   final String pattern;
-
-  /// whether the placeholder can float to left top on focus
   final String labeltext;
-
   final bool hasFloatingPlaceholder;
-
-  ///default text to show on the passwordfield
-  /// This hint is hidden/does not take effect if [hasFloatingPlaceholder] = true
   final String hintText;
-
-  /// styling fpr the the hint and the floating label,
-  /// defaults to same as inputStyle if not specified
   final TextStyle hintStyle;
-
-  /// styling the Passwordfield Text
   final TextStyle inputStyle;
-
-  /// style for the the errorMessage
   final TextStyle errorStyle;
-
-  /// The maximum number of lines the [errorText] can occupy.
-  ///
-  /// Defaults to null, which means that the [errorText] will be limited
-  /// to a single line with [TextOverflow.ellipsis].
   final int errorMaxLines;
-
-  /// custom message to show if the input password does not match the pattern.
   final String errorMessage;
-
-  /// if hasFloatingPlaceholder==true
-  /// a text label floats to left top on focus
-  /// The label defaults to "Password" if not specified,
-  ///
-  /// floating text can be styled using [hintStyle]
-  ///
-  /// Note: either [floatingText]/ [hintText] can be shown at a time
-  /// that mainly depends on property [hasFloatingPlaceholder]
   final String floatingText;
-
-  /// the max number of characters the password field can support
   final int maxLength;
-
-  /// function triggerred when the submit button on keyboard is pressed
   final Function(String) onSubmit;
-
-  /// A Callback function triggered when the text insude the PasswordField changes
-  ///
   @deprecated
   final Function onChanged;
-
-  /// Icon used to unhide the password when touch in Contact with the icon
   final Icon suffixIcon;
-
-  /// The Icon to show at the right end of the textfield, suffix Icon can be removed by setting suffixIconEnabled to false,defaults to true
   final bool suffixIconEnabled;
-
   @override
   State createState() {
     return PasswordFieldState();
   }
 }
-
 class PasswordFieldState extends State<PasswordField> {
   bool obscureText = true;
-//wrap your toggle icon in Gesture Detector
-
   void inContact(TapDownDetails details) {
     setState(() {
       obscureText = false;
@@ -143,7 +73,6 @@ class PasswordFieldState extends State<PasswordField> {
       obscureText = true;
     });
   }
-
   PasswordBloc bloc = PasswordBloc();
   Widget passwordFieldWidget() {
     return Theme(
