@@ -57,13 +57,13 @@ class CartItem extends StatelessWidget {
                   'ယခုဆေးကိုဖယ်မလား ?',
                 ),
                 actions: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: Text('မဖယ်ပါ'),
                     onPressed: () {
                       Navigator.of(ctx).pop(false);
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('ဖယ်မည်'),
                     onPressed: () {
                       Navigator.of(ctx).pop(true);

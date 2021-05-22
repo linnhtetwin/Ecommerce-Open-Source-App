@@ -27,7 +27,7 @@ class _SidebarState extends State {
             automaticallyImplyLeading: false,
           ),
           Divider(),
-          RaisedButton(
+          ElevatedButton(
             child: Text('Buyer/Seller'),
             onPressed: buyerseller,
           ),

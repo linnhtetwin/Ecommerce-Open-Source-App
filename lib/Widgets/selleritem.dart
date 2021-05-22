@@ -46,14 +46,13 @@ class Selleritem extends StatelessWidget {
                     'ယခုဆေးကိုဖျက်မလား Error အကြီးကြီးတက်နိုင်သည် ?',
                   ),
                   actions: <Widget>[
-                    FlatButton(
+                    TextButton(
                       child: Text('မဖျက်ပါ'),
                       onPressed: () {
                         Navigator.of(ctx).pop(false);
                       },
                     ),
-                    FlatButton(
-                      color: Colors.red,
+                    TextButton(
                       child: Text('ဖျက်မည်'),
                       onPressed: () {
                         Navigator.of(ctx).pop(true);

@@ -38,21 +38,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   hasFloatingPlaceholder: true,
                   labeltext: "Password",
                 ),
-                FlatButton(
+                TextButton(
                   child: Text(
                     "LOGIN",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.green),
                   ),
-                  color: Color.fromARGB(255, 35, 200, 35),
                   onPressed: () =>
                       Navigator.pushNamed(context, Overviewscreen.routeName),
                 ),
-                FlatButton(
+                TextButton(
                   child: Text(
                     "REGISTER",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.green),
                   ),
-                  color: Color.fromARGB(255, 35, 200, 35),
                   onPressed: () =>
                       Navigator.pushNamed(context, RegisterScreen.routeName),
                 )

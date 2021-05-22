@@ -52,7 +52,7 @@ class CartScreen extends StatelessWidget {
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('Checkout'),
                     onPressed: () {
                       Provider.of<Checkout>(context, listen: false).checkoutnow(

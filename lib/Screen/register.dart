@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Widgets/addressfield.dart';
 import '../Widgets/textfield.dart';
 import '../Sources/passwordfield.dart';
 import '../Screen/login.dart';
@@ -34,7 +33,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               customtextfield("Name"),
               customtextfield("Email"),
               customtextfield("Phone"),
-              AddressField(),
               PasswordField(
                 color: Colors.green,
                 hasFloatingPlaceholder: true,
@@ -49,35 +47,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
               new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  FlatButton(
-                    color: Color.fromARGB(255, 35, 200, 35),
+                  TextButton(
                     child: Text(
                       "SUBMIT",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.green),
                     ),
                     onPressed: () => print("Register Acc"),
                   ),
-                  FlatButton(
-                    color: Color.fromARGB(255, 35, 200, 35),
+                  TextButton(
                     child: Text(
                       "BACK",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.green),
                     ),
                     onPressed: () =>
                         Navigator.pushNamed(context, LoginScreen.routeName),
                   ),
                 ],
               ),
-              new FlatButton(
-                color: Color.fromARGB(255, 35, 200, 35),
+              new TextButton(
                 child: Text(
                   "Register With Facebook",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.green),
                 ),
                 onPressed: () => print("Register Acc"),
               ),
-              new FlatButton(
-                color: Color.fromARGB(255, 35, 200, 35),
+              new TextButton(
                 child: Text(
                   "Register With Google",
                   style: TextStyle(color: Colors.white),
