@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Model/dummyproducts.dart';
 import '../Model/product.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
 
 class EditScreen extends StatefulWidget {
   static const routeName = '/selleritem';
@@ -15,6 +17,60 @@ class _EditProductScreenState extends State<EditScreen> {
   final _genericnameFocusNode = FocusNode();
   final _priceFocusNode = FocusNode();
 
+  File _image;
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  Future captureImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_camera),
+                      title: new Text('Capture form Camera'),
+                      onTap: () {
+                        captureImage();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_library),
+                    title: new Text('From Gallery'),
+                    onTap: () {
+                      getImage();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
 
   final _form = GlobalKey<FormState>();
   var _x = Product(
@@ -42,15 +98,15 @@ class _EditProductScreenState extends State<EditScreen> {
     if (_isInit) {
       final productId = ModalRoute.of(context).settings.arguments as String;
       if (productId != null) {
-        _x =
-            Provider.of<Dummyproducts>(context, listen: false).findById(productId);
+        _x = Provider.of<Dummyproducts>(context, listen: false)
+            .findById(productId);
         _initValues = {
           'name': _x.name,
           'genericname': _x.genericname,
           'price': _x.price.toString(),
-          'imageUrl': 'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
+          'imageUrl':
+              'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
         };
-
       }
     }
     _isInit = false;
@@ -114,12 +170,13 @@ class _EditProductScreenState extends State<EditScreen> {
                 },
                 onSaved: (value) {
                   _x = Product(
-                      id: _x.id,
-                      name: value,
-                      genericname: _x.genericname,
-                      price: _x.price,
+                    id: _x.id,
+                    name: value,
+                    genericname: _x.genericname,
+                    price: _x.price,
                     imageUrl:
-                    'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',);
+                        'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
+                  );
                 },
               ),
               TextFormField(
@@ -144,7 +201,8 @@ class _EditProductScreenState extends State<EditScreen> {
                     genericname: value,
                     price: _x.price,
                     imageUrl:
-                    'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',);
+                        'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
+                  );
                 },
               ),
               TextFormField(
@@ -175,7 +233,8 @@ class _EditProductScreenState extends State<EditScreen> {
                     price: int.parse(value),
                     genericname: _x.genericname,
                     imageUrl:
-                    'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',);
+                        'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
+                  );
                 },
               ),
               TextFormField(
@@ -184,7 +243,6 @@ class _EditProductScreenState extends State<EditScreen> {
                 onFieldSubmitted: (_) {
                   _saveForm();
                 },
-
                 onSaved: (value) {
                   _x = Product(
                     id: _x.id,
@@ -192,8 +250,29 @@ class _EditProductScreenState extends State<EditScreen> {
                     price: _x.price,
                     genericname: _x.genericname,
                     imageUrl:
-                    'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',);
+                        'https://static-01.shop.com.mm/p/0cdfbfedc20f5efd589da860366cc313.jpg_200x200q75.jpg',
+                  );
                 },
+              ),
+              GestureDetector(
+                onTap: () {
+                  _showPicker(context);
+                },
+                child: Container(
+                  child: _image != null
+                      ? ClipRRect(
+                          child: Image.file(
+                            _image,
+                            width: 200,
+                            height: 200,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        )
+                      : Container(
+                          width: 200,
+                          height: 200,
+                          child: Text('No image selected.')),
+                ),
               ),
             ],
           ),
